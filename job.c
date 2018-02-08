@@ -1936,6 +1936,14 @@ child_execute_job (struct output *out, int good_stdin, char **argv, char **envp)
   int save_fdout = -1;
   int save_fderr = -1;
 
+  printf ("EXECUTING: ");
+  // for (int i = 0; envp [i]; i++)
+  //   printf ("%s ", envp [i]);
+  for (int i = 0; argv [i]; i++)
+    printf ("%s ", argv [i]);
+  printf ("\n");
+  fflush (stdout);
+
   /* Divert child output if we want to capture output.  */
   if (out && out->syncout)
     {
@@ -2031,6 +2039,14 @@ child_execute_job (struct output *out, int good_stdin, char **argv, char **envp)
   int fdin = good_stdin ? FD_STDIN : get_bad_stdin ();
   int fdout = FD_STDOUT;
   int fderr = FD_STDERR;
+
+  printf ("EXECUTING: ");
+  // for (int i = 0; envp [i]; i++)
+  //   printf ("%s ", envp [i]);
+  for (int i = 0; argv [i]; i++)
+    printf ("%s ", argv [i]);
+  printf ("\n");
+  fflush (stdout);
 
   /* Divert child output if we want to capture it.  */
   if (out && out->syncout)
